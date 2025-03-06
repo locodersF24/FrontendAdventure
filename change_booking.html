@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit reservation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Edit reservation</h1>
+    </header>
+
+<div class="form-container">
+    <form action="http://localhost:8080/reservation/1" method="put">
+        <div class="form-group">
+            <label>Acitivity
+            <select>
+                <option>gocart</option>
+                <option>paintball</option>
+                <option>sumobrydning</option>
+                <option>minigolf</option>
+            </select>
+            </label>
+
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-lab" for="inpNumberOfPeople">Persons</label>
+            <input
+                    type="number"
+                    name="numberOfPeople"
+                    class="inputfield"
+                    placeholder="1"
+                    id="inpNumberOfPeople"
+                    required
+            >
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-lab" for="inpCalender">Date</label>
+            <input
+                    type="date"
+                    name="numberOfPeople"
+                    class="inputfield"
+                    placeholder=""
+                    id="inpCalender"
+                    required
+            >
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-lab" for="inpTimeSlot">Time slot</label>
+            <input
+                    type="time"
+                    name="timeSlot"
+                    class="inputfield"
+                    placeholder=""
+                    id="inpTimeSlot"
+                    required
+            >
+        </div>
+        <br>
+        <p>Contact person</p>
+        <div class="form-group">
+            <label class="form-lab" for="inpFirstName">Firstname</label>
+            <input
+                    type="text"
+                    name="firstName"
+                    class="inputfield"
+                    placeholder="??"
+                    id="inpFirstName"
+                    required
+            >
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-lab" for="inpLastName">Lastname</label>
+            <input
+                    type="text"
+                    name="lastName"
+                    class="inputfield"
+                    placeholder="??"
+                    id="inpLastName"
+                    required
+            >
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-lab" for="inpEmail">E-mail</label>
+            <input
+                    type="text"
+                    name="email"
+                    class="inputfield"
+                    placeholder="??"
+                    id="inpEmail"
+                    required
+            >
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="form-lab" for="inpPhoneNumber">Phone number</label>
+            <input
+                    type="text"
+                    name="phoneNumber"
+                    class="inputfield"
+                    placeholder="??"
+                    id="inpPhoneNumber"
+                    required
+            >
+        </div>
+
+        <br>
+
+        <button type="submit">save</button>
+    </form>
+
+    <br>
+    <button>Back</button>
+    <button type="submit">Delete reservation</button>
+
+</div>
+
+</body>
+<script src="js/changebooking.js"></script>
+</html>
