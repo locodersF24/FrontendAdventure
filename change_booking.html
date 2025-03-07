@@ -12,107 +12,108 @@
     </header>
 
 <div class="form-container">
-    <form action="http://localhost:8080/reservation/1" method="put">
+    <form action="http://localhost:8080/reservations/{id}" method="put">
         <div class="form-group">
-            <label>Acitivity
-            <select>
-                <option>gocart</option>
-                <option>paintball</option>
-                <option>sumobrydning</option>
-                <option>minigolf</option>
+            <label>Activity:
+            <select name ="activity" class="inpActivity" required>
+                <option value="Go-kart">Go-kart</option>
+                <option value="Mini-golf">Mini-golf</option>
+                <option value="Paintball">Paintball</option>
+                <option value="Sumo-wrestling">Sumo Wrestling</option>
             </select>
             </label>
-
         </div>
         <br>
         <div class="form-group">
-            <label class="form-lab" for="inpNumberOfPeople">Persons</label>
+            <label class="form-lab">Persons
             <input
                     type="number"
                     name="numberOfPeople"
-                    class="inputfield"
-                    placeholder="1"
-                    id="inpNumberOfPeople"
+                    value=""
+                    class="inpNumberOfPeople"
                     required
             >
+            </label>
         </div>
         <br>
         <div class="form-group">
-            <label class="form-lab" for="inpCalender">Date</label>
+            <label class="form-lab">Date
             <input
                     type="date"
-                    name="numberOfPeople"
-                    class="inputfield"
-                    placeholder=""
-                    id="inpCalender"
+                    name="date"
+                    value=""
+                    class="inpDate"
                     required
             >
+            </label>
         </div>
         <br>
         <div class="form-group">
-            <label class="form-lab" for="inpTimeSlot">Time slot</label>
-            <input
-                    type="time"
-                    name="timeSlot"
-                    class="inputfield"
-                    placeholder=""
-                    id="inpTimeSlot"
-                    required
-            >
+            <label class="form-lab">Time slot
+            <select name="timeSlot" class="inpTimeSlot" required>
+                <option value="9.00-10.00">9.00-10.00</option>
+                <option value="10.00-11.00">10.00-11.00</option>
+                <option value="11.00-12.00">11.00-12.00</option>
+                <option value="12.00-13.00">12.00-13.00</option>
+                <option value="13.00-14.00">13.00-14.00</option>
+                <option value="14.00-15.00">14.00-15.00</option>
+                <option value="15.00-16.00">15.00-16.00</option>
+                <option value="16.00-17.00">16.00-17.00</option>
+            </select>
+            </label>
         </div>
         <br>
-        <p>Contact person</p>
+        <h4>Contact person</h4>
         <div class="form-group">
-            <label class="form-lab" for="inpFirstName">Firstname</label>
+            <label class="form-lab">Firstname
             <input
                     type="text"
                     name="firstName"
-                    class="inputfield"
-                    placeholder="??"
-                    id="inpFirstName"
+                    value=""
+                    class="inpFirstName"
                     required
             >
+            </label>
         </div>
         <br>
         <div class="form-group">
-            <label class="form-lab" for="inpLastName">Lastname</label>
+            <label class="form-lab">Lastname
             <input
                     type="text"
                     name="lastName"
-                    class="inputfield"
-                    placeholder="??"
-                    id="inpLastName"
+                    value=""
+                    class="inpLastName"
                     required
             >
+            </label>
         </div>
         <br>
         <div class="form-group">
-            <label class="form-lab" for="inpEmail">E-mail</label>
+            <label class="form-lab">E-mail
             <input
                     type="text"
                     name="email"
-                    class="inputfield"
-                    placeholder="??"
-                    id="inpEmail"
+                    value=""
+                    class="inpEmail"
                     required
             >
+            </label>
         </div>
         <br>
         <div class="form-group">
-            <label class="form-lab" for="inpPhoneNumber">Phone number</label>
+            <label class="form-lab">Phone number
             <input
                     type="text"
                     name="phoneNumber"
-                    class="inputfield"
-                    placeholder="??"
-                    id="inpPhoneNumber"
+                    value=""
+                    class="inpPhoneNumber"
                     required
             >
+            </label>
         </div>
-
         <br>
 
-        <button type="submit">save</button>
+        <button type="submit">Save</button>
     </form>
 
     <br>
@@ -124,3 +125,4 @@
 </body>
 <script src="js/changebooking.js"></script>
 </html>
+
