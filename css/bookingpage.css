@@ -1,0 +1,26 @@
+
+.success {
+    color: green;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.few-spots {
+    background-color: yellow;
+    color: black;
+}
+
+.fully-booked {
+    background-color: red;
+    color: white;
+}
+
