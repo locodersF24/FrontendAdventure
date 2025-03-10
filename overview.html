@@ -3,19 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Booking overview</title>
-    <script src="./js/overview.js" defer></script> <!-- defer: Run the script *after* the html. -->
     <style>
         table {border-collapse: collapse;}
-        tr:hover {background-color: lightgray;}
-        th {text-align: left;}
+        thead {border: 1px solid gray;}
+        th {text-align: left; border-left: 1px solid gray;}
+        th.small {
+            padding: 0 10px 0 0;
+            border-left: 0;}
+        span.black {color: black;}
+        span.gray {color: lightgray;}
+        span.gray:hover {color: gray;}
+        tbody tr:hover {background-color: lightgray;}
+        th, td {padding: 10px;}
     </style>
+    <script type="module">
+        import run from "./js/overview.js";
+        run();
+    </script>
 </head>
 <body>
-
+<form class="searchForm">
+    <label>
+        First Name:
+        <input type="text" name="firstName">
+    </label>
+    <label>
+        Last Name:
+        <input type="text" name="lastName">
+    </label>
+    <label>
+        Phone number:
+        <input type="tel" pattern="[0-9]{8}" name="phoneNumber">
+    </label>
+    <label>
+        E-mail address:
+        <input type="email" name="email">
+    </label>
+    <br><br>
+    <label>
+        Activity:
+        <select name="activity">
+            <!-- Hardcoded for now -->
+            <option></option>
+            <option value="Go-kart">Go-kart</option>
+            <option value="Minigolf">Minigolf</option>
+            <option value="Paintball">Paintball</option>
+            <option value="Sumo Wrestling">Sumo Wrestling</option>
+        </select>
+    </label>
+    <label>
+        Event date:
+        <input type="date" name="date">
+    </label>
+    <button type="submit">Search</button>
+    <button type="reset">Clear</button>
+</form>
+<br>
 <table>
     <thead></thead>
     <tbody></tbody>
 </table>
-
+<p></p>
 </body>
 </html>
