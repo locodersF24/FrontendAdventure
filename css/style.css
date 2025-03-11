@@ -1,0 +1,222 @@
+.flex-container {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #070000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    margin: 30px 30px 7.5rem;
+    text-align: center;
+}
+
+a {
+    font-weight: bold;
+    font-style: oblique;
+    color: #ffffff;
+}
+
+h1 {
+   color: #e33030;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 50px;
+    text-shadow: 1px 1px 1px #331c1c;
+}
+
+.image {
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.box {
+    background-color: #ffffff;
+
+}
+
+footer {
+    font-family: Arial, sans-serif;
+    background-color: darkred;
+    color: white;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+}
+
+footer a:hover {
+    color: #000000;
+}
+
+footer p {
+    font-style: bold;
+    text-align: center;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    margin: auto;
+    margin-top: 50px;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+
+.login-container button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.login-container button:hover {
+    background-color: darkred;
+}
+
+.btn {
+    background-color: #4e5a64;
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: darkred;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Grid til aktivitetsbokse */
+.activity-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Styling af aktivitetsbokse */
+.activity-box {
+    width: 300px;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Hover-effekt */
+.activity-box:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Grid til group bokse */
+.group-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Styling af group bokse */
+.group-box {
+    width: 300px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Hover-effekt */
+.group-box:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+/* Hero sektionen - baggrundsbillede og titel */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Juster højden på baggrunden */
+    background-image: url('https://images.pexels.com/photos/17210001/pexels-photo-17210001/free-photo-of-byggeri-rejse-underholdning-tyrkiet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Giver titlen lidt skygge for bedre synlighed */
+    margin: 0;
+}
+
+/* Baggrundsbilleder */
+.klatring { background-image: url('https://images.pexels.com/photos/5692435/pexels-photo-5692435.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+.gokart { background-image: url('https://images.pexels.com/photos/11111674/pexels-photo-11111674.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+.minigolf { background-image: url('https://images.pexels.com/photos/6370109/pexels-photo-6370109.jpeg'); }
+.sumoewrestling { background-image: url('https://bouncycastlenetwork-res.cloudinary.com/image/upload/f_auto,q_auto,c_limit,w_900/2e2960d57468171f09fc6be0cd7b4d53'); }
+.group { background-image: url('https://images.pexels.com/photos/1187086/pexels-photo-1187086.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+.individuals { background-image: url('https://images.pexels.com/photos/2880897/pexels-photo-2880897.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+
+
+

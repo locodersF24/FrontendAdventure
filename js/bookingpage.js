@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         nextStepButton.style.display = "none";
     })
 
-    //confirm knao
+    //confirm knap
     const confirmButton = document.getElementById("confirmBooking");
     confirmButton.addEventListener("click", function () {
         confirmationMessage.textContent = "Your booking has been confirmed."
