@@ -83,7 +83,7 @@ function insertRows(bookings) {
         tableRow.addEventListener("click", () => {
             const params = new URLSearchParams();
             params.append("reservationId", booking.reservationId);
-            window.location.href = "see_booking.html?" + params.toString();
+            window.location.href = "change_booking.html?" + params.toString();
         });
         Object.entries(booking).slice(1).forEach(([key, value]) => {
             const td = document.createElement("td");

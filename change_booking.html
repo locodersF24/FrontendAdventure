@@ -4,125 +4,70 @@
     <meta charset="UTF-8">
     <title>Edit reservation</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module">
+        import run from "./js/changebooking.js";
+        run();
+    </script>
 </head>
-
 <body>
-    <header>
-        <h1>Edit reservation</h1>
-    </header>
-
-<div class="form-container">
-    <form action="http://localhost:8080/reservations/{id}" method="put">
-        <div class="form-group">
-            <label>Activity:
-            <select name ="activity" class="inpActivity" required>
-                <option value="Go-kart">Go-kart</option>
-                <option value="Mini-golf">Mini-golf</option>
-                <option value="Paintball">Paintball</option>
-                <option value="Sumo-wrestling">Sumo Wrestling</option>
-            </select>
-            </label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="form-lab">Persons
-            <input
-                    type="number"
-                    name="numberOfPeople"
-                    value=""
-                    class="inpNumberOfPeople"
-                    required
-            >
-            </label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="form-lab">Date
-            <input
-                    type="date"
-                    name="date"
-                    value=""
-                    class="inpDate"
-                    required
-            >
-            </label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="form-lab">Time slot
-            <select name="timeSlot" class="inpTimeSlot" required>
-                <option value="9.00-10.00">9.00-10.00</option>
-                <option value="10.00-11.00">10.00-11.00</option>
-                <option value="11.00-12.00">11.00-12.00</option>
-                <option value="12.00-13.00">12.00-13.00</option>
-                <option value="13.00-14.00">13.00-14.00</option>
-                <option value="14.00-15.00">14.00-15.00</option>
-                <option value="15.00-16.00">15.00-16.00</option>
-                <option value="16.00-17.00">16.00-17.00</option>
-            </select>
-            </label>
-        </div>
-        <br>
-        <h4>Contact person</h4>
-        <div class="form-group">
-            <label class="form-lab">Firstname
-            <input
-                    type="text"
-                    name="firstName"
-                    value=""
-                    class="inpFirstName"
-                    required
-            >
-            </label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="form-lab">Lastname
-            <input
-                    type="text"
-                    name="lastName"
-                    value=""
-                    class="inpLastName"
-                    required
-            >
-            </label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="form-lab">E-mail
-            <input
-                    type="text"
-                    name="email"
-                    value=""
-                    class="inpEmail"
-                    required
-            >
-            </label>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="form-lab">Phone number
-            <input
-                    type="text"
-                    name="phoneNumber"
-                    value=""
-                    class="inpPhoneNumber"
-                    required
-            >
-            </label>
-        </div>
-        <br>
-
-        <button type="submit">Save</button>
-    </form>
-
+<h1>Update booking</h1>
+<form class="updateBooking">
+    <input type="hidden" name="reservationId" class="reservationId">
+    <label>
+        First Name:
+        <input type="text" name="firstName" class="firstName">
+    </label>
     <br>
-    <button>Back</button>
-    <button type="submit">Delete reservation</button>
+    <label>
+        Last Name:
+        <input type="text" name="lastName" class="lastName">
+    </label>
+    <br>
+    <label>
+        Phone number:
+        <input type="tel" pattern="[0-9]{8}" name="phoneNumber" class="phoneNumber">
+    </label>
+    <br>
+    <label>
+        E-mail address:
+        <input type="email" name="email" class="email">
+    </label>
+    <br>
+    <label>
+        Activity:
+        <select name="activity">
+            <!-- Hardcoded for now -->
+            <option value="Go-kart" class="Go-kart">Go-kart</option>
+            <option value="Minigolf" class="Minigolf">Minigolf</option>
+            <option value="Paintball" class="Paintball">Paintball</option>
+            <option value="Sumo Wrestling" class="Sumo Wrestling">Sumo Wrestling</option>
+        </select>
+    </label>
+    <br>
+    <label>
+        Event date:
+        <input type="date" name="date" class="date">
+    </label>
+    <br>
+    <label>
+        Event time:
+        <select name="timeSlotCode" class="timeSlotCode"></select>
+    </label>
+    <br>
+    <label>
+        For:
+        <input type="number" min="1" name="numberOfPeople" class="numberOfPeople">
+    </label>
+    <br>
+    <button type="submit">Save</button>
+    <br>
+    <button type="button" onclick="goBack()">Go back</button>
+    <br>
+    <button type="button" id="deleteButton">Delete</button>
 
-</div>
+
+</form>
 
 </body>
-<script src="js/changebooking.js"></script>
 </html>
 
