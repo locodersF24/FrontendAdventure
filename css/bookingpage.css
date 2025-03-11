@@ -1,0 +1,48 @@
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for each day of the week */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.calendar-cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    height: 50px;
+    font-size: 14px;
+}
+
+.available {
+    background-color: green;
+    color: white;
+}
+
+.limited {
+    background-color: yellow;
+    color: black;
+}
+
+.unavailable {
+    background-color: red;
+    color: white;
+}
+
+.clickable {
+    cursor: pointer;
+    background-color: lightgreen;
+}
+
+.clickable:hover {
+    background-color: green;
+    color: white;
+}
+
+.selected {
+    background-color: orange !important;
+    font-weight: bold;
+}
+
