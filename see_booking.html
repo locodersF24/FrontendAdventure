@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>See booking</title>
+</head>
+<body>
+<p></p>
+<script>
+    document.querySelector("p").innerText = `Reservation ID: ${new URLSearchParams(window.location.search).get("reservationId")}`;
+</script>
+</body>
+</html>

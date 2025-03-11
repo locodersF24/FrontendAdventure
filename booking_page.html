@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+    <link rel="stylesheet" href="css/bookingpage.css">
+    <script src="js/bookingpage.js" defer></script>
+</head>
+<body>
+
+<h1>Book an activity!</h1>
+<form class="bookingForm">
+    <label>Activity:
+    <select class="activity" name ="activity">
+        <option value="Go-kart">Go-kart</option>
+        <option value="Mini-golf">Mini-golf</option>
+        <option value="Paintball">Paintball</option>
+        <option value="Sumo-wrestling">Sumo Wrestling</option>
+    </select>
+    </label>
+    <label>Number of People:
+    <input type="number" class="numberOfPeople" name="numberOfPeople" min="1" required>
+    </label>
+    <label>Date:
+    <input type="date" class="date" name="date" required>
+    </label>
+
+    <button type="submit">Check availability</button>
+</form>
+<p id="selectedTime"></p>
+
+
+<h2>Availability Calendar</h2>
+<table class="calendar-grid"></table>
+
+<button id="nextStep" disabled>Next</button>
+
+<div class="additionalFields">
+    <label>Name: <input type="text" id="name" name="name" required></label>
+    <label>Email: <input type="email" id="email" name="email" required></label>
+
+<button id="confirmBooking">Confirm booking</button>
+    <p class="confirmationMessage"></p>
+
+</div>
+
+
+</body>
+</html>
