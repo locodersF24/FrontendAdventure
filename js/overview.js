@@ -1,9 +1,9 @@
-import {sendFormWhenSubmit} from "./library.js";
+import {sendFormWhenSubmit, timeSlotCodeToTimeInterval} from "./library.js";
 
 const propertyToLabel = new Map()
     .set("numberOfPeople", "For")
     .set("date", "Event date")
-    .set("timeInterval", "Event time")
+    .set("timeSlotCode", "Event time")
     .set("activity", "Activity")
     .set("firstName", "First Name")
     .set("lastName", "Last Name")
@@ -41,13 +41,25 @@ function insertRows(bookings) {
         if (order.get(key) !== "asc") {
             asc.addEventListener("click", () => {
                 order.set(key, "asc");
-                insertRows(bookings.toSorted((x, y) => x[key].toString().localeCompare(y[key].toString)));
+                let sorter;
+                if (typeof bookings[0][key] === "number") {
+                    sorter = (x, y) => x[key] - y[key];
+                } else {
+                    sorter = (x, y) => x[key].toString().localeCompare(y[key].toString());
+                }
+                insertRows(bookings.toSorted(sorter));
             });
         }
         if (order.get(key) !== "desc") {
             desc.addEventListener("click", () => {
                 order.set(key, "desc");
-                insertRows(bookings.toSorted((x, y) => y[key].toString().localeCompare(x[key].toString())));
+                let sorter;
+                if (typeof bookings[0][key] === "number") {
+                    sorter = (x, y) => y[key] - x[key];
+                } else {
+                    sorter = (x, y) => y[key].toString().localeCompare(x[key].toString());
+                }
+                insertRows(bookings.toSorted(sorter));
             });
         }
         const text = document.createElement("th");
@@ -73,9 +85,13 @@ function insertRows(bookings) {
             params.append("reservationId", booking.reservationId);
             window.location.href = "see_booking.html?" + params.toString();
         });
-        Object.values(booking).slice(1).forEach((value) => {
+        Object.entries(booking).slice(1).forEach(([key, value]) => {
             const td = document.createElement("td");
-            td.innerText = value;
+            if (key === "timeSlotCode") {
+                td.innerText = timeSlotCodeToTimeInterval(value);
+            } else {
+                td.innerText = value;
+            }
             tableRow.append(td, document.createElement("td"));
         })
         tableBody.append(tableRow);
