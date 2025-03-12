@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit reservation</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bookingpage.css">
     <script type="module">
         import run from "./js/changebooking.js";
         run();
@@ -13,6 +13,36 @@
 <h1>Update booking</h1>
 <form class="updateBooking">
     <input type="hidden" name="reservationId" class="reservationId">
+    <br>
+    <label>
+        Activity:
+        <select class="activity" name="activity">
+            <!-- Hardcoded for now -->
+            <option value="Go-kart" class="Go-kart">Go-kart</option>
+            <option value="Minigolf" class="Minigolf">Minigolf</option>
+            <option value="Paintball" class="Paintball">Paintball</option>
+            <option value="Sumo Wrestling" class="Sumo Wrestling">Sumo Wrestling</option>
+        </select>
+    </label>
+    <br>
+    <label>
+        Event date:
+        <input type="date" name="date" class="date">
+    </label>
+    <br>
+    <label>
+        Number of people:
+        <input type="number" min="1" name="numberOfPeople" class="numberOfPeople">
+    </label>
+    <br>
+    <label>
+        <h2>Availability Calendar</h2>
+        <button class="check">Check availability</button>
+        <p id="selectedTime"></p>
+        <table class="calendar-grid"></table>
+    </label>
+    <br>
+<h3>Contact information</h3>
     <label>
         First Name:
         <input type="text" name="firstName" class="firstName">
@@ -33,40 +63,12 @@
         <input type="email" name="email" class="email">
     </label>
     <br>
-    <label>
-        Activity:
-        <select name="activity">
-            <!-- Hardcoded for now -->
-            <option value="Go-kart" class="Go-kart">Go-kart</option>
-            <option value="Minigolf" class="Minigolf">Minigolf</option>
-            <option value="Paintball" class="Paintball">Paintball</option>
-            <option value="Sumo Wrestling" class="Sumo Wrestling">Sumo Wrestling</option>
-        </select>
-    </label>
-    <br>
-    <label>
-        Event date:
-        <input type="date" name="date" class="date">
-    </label>
-    <br>
-    <label>
-        Event time:
-        <select name="timeSlotCode" class="timeSlotCode"></select>
-    </label>
-    <br>
-    <label>
-        For:
-        <input type="number" min="1" name="numberOfPeople" class="numberOfPeople">
-    </label>
-    <br>
     <button type="submit">Save</button>
     <br>
-    <button type="button" onclick="goBack()">Go back</button>
-    <br>
-    <button type="button" id="deleteButton">Delete</button>
-
-
 </form>
+<button class="goBackButton">Go back</button>
+<br>
+<button class="deleteButton">Delete</button>
 
 </body>
 </html>

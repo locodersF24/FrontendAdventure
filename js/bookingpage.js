@@ -5,7 +5,7 @@ let selectedTime = null;  // Definer variablen til at holde den valgte tid
 const url = "http://localhost:8080/reservation";
 const availabilityUrl = "http://localhost:8080/availability";
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoadehd", function() {
     addConfirmButton();
     addNextStepButton();
     hideAdditionalFields();
