@@ -83,7 +83,7 @@ function deleteBooking(id) {
 
         if (userConfirmed) {
             // Send en DELETE-anmodning til serveren
-            fetch("http://localhost:8080/bookings/" + id, {
+            fetch("http://localhost:8080/reservations/" + id, {
                 method: "DELETE", headers: {
                     "Content-Type": "application/json",
                 },
@@ -127,7 +127,7 @@ async function run() {
     let timeSlotCode;
 
     //fylder formen med tidligere info
-    await fetch("http://localhost:8080/bookings/" + id)
+    await fetch("http://localhost:8080/reservations/" + id)
         .then((response) => response.json())
         .then((data) => {
             Object.entries(data).forEach(([key, value]) => {
@@ -145,7 +145,7 @@ async function run() {
 
 
     //form submission for at lave update:
-    sendFormWhenSubmit("PUT", "http://localhost:8080/bookings/" + id, "updateBooking", true, (response) => {
+    sendFormWhenSubmit("PUT", "http://localhost:8080/reservations/" + id, "updateBooking", true, (response) => {
         if (response.ok) {
             alert("Saved successfully!");
         } else {
