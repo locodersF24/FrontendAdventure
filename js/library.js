@@ -37,23 +37,36 @@ export function sendFormWhenSubmit(httpMethod, url, formClass, sendDataAsBody, r
 }
 
 /**
- * @param {int} timeSlotCode
+ * @typedef {Object} TimeSlot
+ * @property {number} id
+ * @property {string} startTime - format 08:00:00 or 16:00:00
+ * @property {string} endTime - format 08:00:00 or 16:00:00
  */
-export function timeSlotCodeToTimeInterval(timeSlotCode) {
-    const timeIntervals = ["", "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00"];
-    return timeIntervals[timeSlotCode];
-}
 
 /**
- * @typedef Booking
- * @type {object}
- * @property {int} reservationId
- * @property {string} activity
- * @property {int} numberOfPeople
- * @property {string} date
- * @property {string} timeSlotCode
+ * @typedef {Object} Activity
+ * @property {number} id
+ * @property {string} name
+ * @property {number} maxNumberOfPeople
+ * @property {number} ageLimit
+ * @property {TimeSlot[]} timeSlots
+ */
+
+/**
+ * @typedef {Object} ContactPerson
+ * @property {number} id
  * @property {string} firstName
  * @property {string} lastName
  * @property {string} phoneNumber
  * @property {string} email
+ */
+
+/**
+ * @typedef {Object} Reservation
+ * @property {number} id
+ * @property {number} numberOfPeople
+ * @property {string} date - format 2025-03-2025
+ * @property {TimeSlot} timeSlot
+ * @property {Activity} activity
+ * @property {ContactPerson} contactPerson
  */
