@@ -2,10 +2,88 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Edit booking</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Edit reservation</title>
+    <link rel="stylesheet" href="/css/booking.css">
+    <!--
+    <script type="module">
+        import run from "./js/changebooking.js";
+        run();
+    </script> -->
 </head>
 <body>
+<!-- Baggrundsbillede og titel -->
+<div class="hero-section edit-booking">
+    <h1>Update booking information</h1>
+</div>
 
+<p></p>
+<div class="booking-container">
+<form class="updateBooking">
+    <input type="hidden" name="reservationId" class="reservationId">
+        <h2>Activity</h2>
+    <div class="input-group">
+        <label>Select activity</label>
+        <select class="activity" name="activity">
+            <!-- Hardcoded for now -->
+            <option value="gokart" class="gokart">Go-kart</option>
+            <option value="minigolf" class="minigolf">Minigolf</option>
+            <option value="climbing" class="climbing">Paintball</option>
+            <option value="sumowrestling" class="sumowrestling">Sumo Wrestling</option>
+        </select>
+    </div>
+
+    <div class="input-group">
+        <label>Event date</label>
+        <input type="date" name="date" class="date">
+    </div>
+
+    <div class="input-group">
+        <label>Number of people</label>
+        <div class="counter">
+            <button id="minus-btn">-</button>
+            <input type="text" id="person-count" value="1" readonly name="numberOfPeople" class="numberOfPeople" >
+            <button id="plus-btn">+</button>
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label>Availability calendar</label>
+        <button class="check">Check availability</button>
+        <p id="selectedTime"></p>
+        <table class="calendar-grid"></table>
+    </div>
+    <div class="input-group">
+    <label>Contact information</label>
+        <br>
+        <div class="input-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="firstName" class="firstName">
+        </div>
+
+        <div class="input-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="lastName" class="lastName">
+        </div>
+
+        <div class="input-group">
+            <label for="phone">Telephone Number</label>
+            <input type="tel" id="phone" maxlength="8" pattern="\d{8}" name="phoneNumber" class="phoneNumber">
+        </div>
+
+        <div class="input-group">
+            <label for="email">Mail</label>
+            <input type="email" id="email" name="email" class="email">
+    </div>
+    <button type="submit" class="btn" id="save-button">Save</button>
+    <br>
+    </div>
+</form>
+<button class="btn" id="delete-button">Delete</button>
+<br>
+<button class="btn" id="goback-button">Go back</button>
+</div>
+
+<script defer src="/js/script.js"></script>
 </body>
 </html>
+

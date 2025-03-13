@@ -122,12 +122,34 @@ select, input[type="date"] {
     background-color: red;
 }
 
-#book-btn {
+#book-btn, #delete-button, .check {
     margin-top: 15px;
     padding: 10px;
     width: 100%;
     background-color: red;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#goback-button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color:  #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: #ffffff;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -153,5 +175,9 @@ select, input[type="date"] {
     color: white;
 }
 
+
+
 .group-hero { background-image: url('https://images.pexels.com/photos/21175818/pexels-photo-21175818/free-photo-of-transportmiddel-daek-spor-bane.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
 .individual-hero { background-image: url('https://images.pexels.com/photos/17210001/pexels-photo-17210001/free-photo-of-byggeri-rejse-underholdning-tyrkiet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+.edit-booking { background-image: url('https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+
