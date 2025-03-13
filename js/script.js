@@ -8,11 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let selectedTimeSlot = null;
 
     const activities = {
-        "minigolf": { duration: 90, maxPersons: 4 },
-        "gokart": { duration: 30, maxPersons: 8 },
-        "climbing": { duration: 60, maxPersons: 6 },
-        "sumowrestling": { duration: 45, maxPersons: 2 }
+        "minigolf": { duration: 90, minPersons: 1, maxPersons: 4 },
+        "gokart": { duration: 30, minPersons: 1, maxPersons: 8 },
+        "climbing": { duration: 60, minPersons: 1, maxPersons: 6 },
+        "sumowrestling": { duration: 45, minPersons: 1, maxPersons: 2 },
+        "minigolf_group": { duration: 240, minPersons: 12, maxPersons: 20 },
+        "gokart_group": { duration: 240, minPersons: 12, maxPersons: 20 },
+        "climbing_group": { duration: 240, minPersons: 12, maxPersons: 20 },
+        "sumowrestling_group": { duration: 180, minPersons: 12, maxPersons: 16 }
     };
+
 
     function getCopenhagenTime() {
         const now = new Date();
@@ -25,14 +30,20 @@ document.addEventListener("DOMContentLoaded", function () {
         const today = getCopenhagenTime();
         today.setHours(0, 0, 0, 0);
         const todayStr = today.toISOString().split("T")[0];
-        console.log("⛔ Blokerer datoer før:", todayStr);
+        console.log("⛔ Block dates prior to:", todayStr);
         dateInput.setAttribute("min", todayStr);
     }
 
-    function updateMaxPersons() {
+    function updatePersonCount() {
         const selectedActivity = activitySelect.value;
+        const minPersons = activities[selectedActivity].minPersons || 1; // Standard til 1 hvis ikke defineret
         const maxPersons = activities[selectedActivity].maxPersons;
-        if (parseInt(personCount.value) > maxPersons) {
+
+        personCount.value = minPersons; // Sætter startværdien
+
+        if (parseInt(personCount.value) < minPersons) {
+            personCount.value = minPersons;
+        } else if (parseInt(personCount.value) > maxPersons) {
             personCount.value = maxPersons;
         }
     }
@@ -44,11 +55,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedDate = dateInput.value;
 
         if (!selectedDate) {
-            console.warn("⚠ Ingen dato valgt endnu.");
+            console.warn("⚠ No date chosen yet.");
             return;
         }
 
-        console.log("📆 Valgt dato:", selectedDate);
+        console.log("📆 Choose date:", selectedDate);
 
         let startTime = 10 * 60;
         const endTime = 16 * 60;
@@ -98,13 +109,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     dateInput.addEventListener("change", generateTimeSlots);
     activitySelect.addEventListener("change", function () {
-        updateMaxPersons();
+        updatePersonCount();
         generateTimeSlots();
     });
 
+
     minusBtn.addEventListener("click", function () {
         let count = parseInt(personCount.value);
-        if (count > 1) {
+        const minPersons = activities[activitySelect.value].minPersons;
+
+        if (count > minPersons) {
             personCount.value = count - 1;
         }
     });
@@ -120,6 +134,28 @@ document.addEventListener("DOMContentLoaded", function () {
     disablePastDates();
     generateTimeSlots();
 });
+
+activitySelect.addEventListener("change", function () {
+    updatePersonCount();
+    generateTimeSlots();
+});
+
+minusBtn.addEventListener("click", function () {
+    let count = parseInt(personCount.value);
+    const minPersons = activities[activitySelect.value].minPersons;
+    if (count > minPersons) {
+        personCount.value = count - 1;
+    }
+});
+
+plusBtn.addEventListener("click", function () {
+    let count = parseInt(personCount.value);
+    const maxPersons = activities[activitySelect.value].maxPersons;
+    if (count < maxPersons) {
+        personCount.value = count + 1;
+    }
+});
+
 
 //Booking form brugeroplysninger
 
@@ -141,3 +177,4 @@ document.getElementById("book-btn").addEventListener("click", function(event) {
         return;
     }
 });
+

@@ -44,6 +44,7 @@ body {
     text-align: center;
     box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
     margin: 0 auto; /* Centrer containeren */
+    margin-bottom: 40px;
 }
 
 /* Øvrige stylinger for inputfelter, knapper osv. */
@@ -144,10 +145,12 @@ select, input[type="date"] {
 }
 
 .input-group input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #333;
+    color: white;
 }
 
 .group-hero { background-image: url('https://images.pexels.com/photos/21175818/pexels-photo-21175818/free-photo-of-transportmiddel-daek-spor-bane.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }

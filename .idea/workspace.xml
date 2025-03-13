@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="49423332-8f19-4bf5-8866-7d019ef26dfb" name="Changes" comment="calendar booking updated">
-      <change afterPath="$PROJECT_DIR$/css/booking.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/booking_overview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/booking_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/change_booking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/group-booking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/group_individual.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/individual-booking.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
+    <list default="true" id="49423332-8f19-4bf5-8866-7d019ef26dfb" name="Changes" comment="front end tilføjet fra monirs gamle branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/booking_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/booking_page-esra.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bookingpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/bookingpage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login-toba.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/booking.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/booking.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/group-booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/group-booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/individual-booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/individual-booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/script.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +112,15 @@
       <workItem from="1741160984802" duration="1050000" />
       <workItem from="1741174716342" duration="15902000" />
     </task>
+    <task id="LOCAL-00001" summary="front end tilføjet fra monirs gamle branch">
+      <option name="closed" value="true" />
+      <created>1741694382096</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741694382096</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,5 +136,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="front end tilføjet fra monirs gamle branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="front end tilføjet fra monirs gamle branch" />
   </component>
 </project>

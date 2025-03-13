@@ -23,24 +23,24 @@
 
   <!-- Vælg aktivitet -->
   <div class="input-group">
-    <label for="activity-select">Choose activity</label>
+    <label for="activity-select">Select activity</label>
     <select id="activity-select">
-      <option value="minigolf">Minigolf (1,5 hour, max 4 people)</option>
-      <option value="gokart">Go-kart (30 min, max 8 people)</option>
-      <option value="climbing">Climbing (1 hour, max 6 people)</option>
-      <option value="sumowrestling">Sumowrestling (45 min, max 2 people)</option>
+      <option value="minigolf_group">Minigolf (4 hours)</option>
+      <option value="gokart_group">Go-kart (4 hours)</option>
+      <option value="climbing_group">Climbing (4 hours)</option>
+      <option value="sumowrestling_group">Sumowrestling (3 hours)</option>
     </select>
   </div>
 
   <!-- Vælg dato -->
   <div class="input-group">
-    <label>Vælg dato</label>
+    <label>Select date</label>
     <input type="date" id="date-picker">
   </div>
 
   <!-- Vælg antal personer -->
   <div class="input-group">
-    <label>Choose number of people</label>
+    <label>Select number of people</label>
     <div class="counter">
       <button id="minus-btn">-</button>
       <input type="text" id="person-count" value="1" readonly>
@@ -50,8 +50,28 @@
 
   <!-- Vælg et tidspunkt -->
   <div class="input-group">
-    <label>Choose a time slot</label>
+    <label>Select a time slot</label>
     <div id="time-slots"></div>
+  </div>
+
+  <div class="input-group">
+    <label for="first-name">First Name</label>
+    <input type="text" id="first-name" required>
+  </div>
+
+  <div class="input-group">
+    <label for="last-name">Last Name</label>
+    <input type="text" id="last-name" required>
+  </div>
+
+  <div class="input-group">
+    <label for="phone">Telephone Number</label>
+    <input type="tel" id="phone" maxlength="8" pattern="\d{8}" required>
+  </div>
+
+  <div class="input-group">
+    <label for="email">Mail</label>
+    <input type="email" id="email" required>
   </div>
 
   <button id="book-btn">Book activity</button>
