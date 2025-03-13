@@ -78,7 +78,7 @@ function fillTableBody(reservations) {
         tableRow.addEventListener("click", () => {
             const params = new URLSearchParams();
             params.append("reservationId", reservation.reservationId);
-            window.location.href = "see_booking.html?" + params.toString();
+            window.location.href = "change_booking.html?" + params.toString();
         });
         Array.from(reservation.values()).slice(4).forEach((value) => {
             const td = document.createElement("td");
