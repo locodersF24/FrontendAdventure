@@ -21,45 +21,51 @@ function fillTableHead(reservations) {
     const upper = document.createElement("tr");
     const lower = document.createElement("tr");
     propertyToHeader.forEach((value, key) => {
+
+        // ▲ row
         const asc = document.createElement("span");
-        asc.className = order.get(key) === "asc" ? "black" : "gray";
+        asc.className = order.get(value) === "asc" ? "black" : "gray";
         asc.innerText = "▲";
-        const desc = document.createElement("span");
-        desc.className = order.get(key) === "desc" ? "black" : "gray";
-        desc.innerText = "▼";
-        if (order.get(key) !== "asc") {
+        if (order.get(value) !== "asc") {
             asc.addEventListener("click", () => {
-                order.set(key, "asc");
+                order.set(value, "asc");
                 let sorter;
-                if (typeof value === "number") {
-                    sorter = (x, y) => x[key] - y[key];
+                if (key === "numberOfPeople") {
+                    sorter = (x, y) => x.get(key) - y.get(key);
                 } else {
-                    sorter = (x, y) => x[key].toString().localeCompare(y[key].toString());
+                    sorter = (x, y) => x.get(key).localeCompare(y.get(key));
                 }
-                fillTableBody(reservations.toSorted(sorter));
+                insertData(reservations.toSorted(sorter));
             });
         }
-        if (order.get(key) !== "desc") {
+        const ascTh = document.createElement("th");
+        ascTh.className = "small";
+        ascTh.append(asc);
+
+        // ▼ row
+        const desc = document.createElement("span");
+        desc.className = order.get(value) === "desc" ? "black" : "gray";
+        desc.innerText = "▼";
+        if (order.get(value) !== "desc") {
             desc.addEventListener("click", () => {
-                order.set(key, "desc");
+                order.set(value, "desc");
                 let sorter;
-                if (typeof value === "number") {
-                    sorter = (x, y) => y[key] - x[key];
+                if (key === "numberOfPeople") {
+                    sorter = (x, y) => y.get(key) - x.get(key);
                 } else {
-                    sorter = (x, y) => y[key].toString().localeCompare(x[key].toString());
+                    sorter = (x, y) => y.get(key).localeCompare(x.get(key));
                 }
-                fillTableBody(reservations.toSorted(sorter));
+                insertData(reservations.toSorted(sorter));
             });
         }
+        const descTh = document.createElement("th");
+        descTh.className = "small";
+        descTh.append(desc);
+
+        // Combined row
         const text = document.createElement("th");
         text.rowSpan = 2;
         text.innerText = value;
-        const ascTh = document.createElement("th");
-        const descTh = document.createElement("th");
-        ascTh.className = "small";
-        descTh.className = "small";
-        ascTh.append(asc);
-        descTh.append(desc);
         upper.append(text, ascTh);
         lower.append(descTh);
     });
@@ -83,7 +89,7 @@ function fillTableBody(reservations) {
         Array.from(reservation.values()).slice(4).forEach((value) => {
             const td = document.createElement("td");
             td.innerText = value;
-            tableRow.append(td, document.createElement("td")); // her??
+            tableRow.append(td, document.createElement("td"));
         });
         tableBody.append(tableRow);
     });
@@ -94,11 +100,6 @@ function fillTableBody(reservations) {
  * @param {Map<String, any>[]} reservations
  */
 function insertData(reservations) {
-    if (reservations.length === 0) {
-        document.querySelector("p").innerText = "No matches.";
-        return;
-    }
-    document.querySelector("p").innerHTML = "";
     fillTableHead(reservations);
     fillTableBody(reservations);
 }
@@ -133,10 +134,19 @@ function run() {
         "searchForm",
         false,
         (response) => {
-            response.json().then(data => {
-                order.clear();
-                insertData(reservationArrayToMapArray(data));
-            });
+            response.json()
+                .then(data => {
+                    order.clear();
+                    if (data.length > 0) {
+                        document.querySelector("p").innerHTML = "";
+                        insertData(reservationArrayToMapArray(data))
+                    } else {
+                        document.querySelector("p").innerText = "No matches.";
+                        document.querySelector("tbody").remove();
+                        document.querySelector("thead").remove();
+                        document.querySelector("table").append(document.createElement("thead"), document.createElement("tbody"));
+                    }
+                });
         });
 
 }
