@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Booking overview</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!--
     <style>
         button {cursor: pointer;}
         table {border-collapse: collapse;}
@@ -17,7 +19,7 @@
         tbody tr {cursor: pointer}
         tbody tr:hover {background-color: lightgray;}
         th, td {padding: 10px;}
-    </style>
+    </style> -->
 
     <script type="module">
         import run from "./js/overview.js";
@@ -25,6 +27,12 @@
     </script>
 </head>
 <body>
+<div class="hero-section bookings">
+    <h1>Overview of bookings</h1>
+</div>
+
+<p></p>
+<div class="booking-overview">
 <form class="searchForm">
     <label>
         First Name:
@@ -36,14 +44,15 @@
     </label>
     <label>
         Phone number:
-        <input type="tel" pattern="[0-9]{8}" name="phoneNumber">
+        <input type="text" pattern="[0-9]{8}" name="phoneNumber">
     </label>
     <label>
         E-mail address:
         <input type="email" name="email">
     </label>
     <br><br>
-    <label>
+    <div class="booking-overview">
+    <label class="activity-select">
         Activity:
         <select name="activity">
             <!-- Hardcoded for now -->
@@ -54,15 +63,17 @@
             <option value="Sumo Wrestling">Sumo Wrestling</option>
         </select>
     </label>
+    </div>
     <label>
         Event date:
         <input type="date" name="date">
     </label>
-    <button type="submit">Search</button>
-    <button type="reset">Clear</button>
+    <button class="btn" type="submit">Search</button>
+    <button class="btn" type="reset">Clear</button>
 </form>
+</div>
 <br>
-<table>x
+<table>
     <thead></thead>
     <tbody></tbody>
 </table>
