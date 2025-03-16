@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Equipment</title>
+    <script src="js/equipment.js" defer></script>
+</head>
+<body>
+    <h1>Edit Equipment</h1>
+
+    <form class="equipmentForm">
+        <label for="activity">Activity:</label>
+        <select id="activity" class="activity">
+            <!-- Dynamically populated options -->
+        </select>
+        <button id="nextButton">Next</button>
+    </form>
+    <!-- Section where the equipment will be displayed -->
+    <div class="equipment-section"></div>
+
+    <!-- Hidden confirmation message -->
+    <p class="confirmationMessage" style="color: green; display:none;"></p>
+
+    <!-- Button to save changes -->
+    <button id="saveButton" style="display:none;">Save Changes</button>
+</body>
+</html>

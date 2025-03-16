@@ -1,6 +1,6 @@
-console.log("bookingpage.js loaded!"); //for at sikre at alt virker - ellers ligegyldig
+console.log("bookingpage.js loaded!");
 
-let selectedTime = null;  // Definer variablen til at holde den valgte tid
+let selectedTime = null;
 
 const url = "http://localhost:8080/reservation";
 const availabilityUrl = "http://localhost:8080/availability";
@@ -75,7 +75,7 @@ function addNextStepButton() {
     let nextStepButton = document.querySelector("#nextStep");
 
     if(!nextStepButton){
-        nextStepButton.documentElement.createElement("button")
+        nextStepButton.document.createElement("button")
         nextStepButton.id="nextStep"
         nextStepButton.textContent = "Next"
         nextStepButton.disabled = true;
@@ -115,7 +115,7 @@ async function confirmBooking() {
     reservationData.time = selectedTime.textContent.trim(); // Get the time from the selected table row
 
     try {
-        const response = await fetch("/reservation", {
+        const response = await fetch("url", {
             method: "POST",
             body: JSON.stringify(reservationData),
             headers: {
