@@ -20,7 +20,7 @@
 
     function redirectIfLoginSucceed(userRole){
         if (userRole.toLowerCase() === "reservation-manager"){
-            window.location.href = "reservation-overview.html";// TODO change html page to correct name
+            window.location.href = "booking-overview.html";//
 
         } else if (userRole.toLowerCase() === "activity-manager"){
             window.location.href = "activity-overview"; //TODO change html page to correct name
