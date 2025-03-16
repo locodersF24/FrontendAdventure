@@ -1,0 +1,183 @@
+/* Generelle body-indstillinger */
+body {
+    background-color: #1a1a1a;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+/* Hero sektionen - baggrundsbillede og titel */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Juster højden på baggrunden */
+    <!--background-image: url('https://images.pexels.com/photos/9182802/pexels-photo-9182802.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); -->
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Giver titlen lidt skygge for bedre synlighed */
+    margin: 0;
+}
+
+/* Beskrivelses-sektionen med tekst */
+.activity-description {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px; /* Afstand til booking sektionen */
+    padding: 0 20px; /* Tilføj lidt padding til venstre og højre */
+}
+
+/* Booking-containeren */
+.booking-container {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px; /* Maksimal bredde */
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    margin: 0 auto; /* Centrer containeren */
+    margin-bottom: 40px;
+}
+
+/* Øvrige stylinger for inputfelter, knapper osv. */
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 14px;
+    display: block;
+}
+
+select, input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+}
+
+/* Person tæller */
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.counter button {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.counter input {
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #222;
+    color: white;
+    border: none;
+}
+
+/* Tidsvalg */
+#time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.time-slot {
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.time-slot.selected {
+    background-color: red;
+}
+
+#book-btn, #delete-button, .check {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#goback-button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color:  #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#save-button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    background-color: #ffffff;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Stil til inputfelterne */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+}
+
+
+
+.group-hero { background-image: url('https://images.pexels.com/photos/21175818/pexels-photo-21175818/free-photo-of-transportmiddel-daek-spor-bane.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+.individual-hero { background-image: url('https://images.pexels.com/photos/17210001/pexels-photo-17210001/free-photo-of-byggeri-rejse-underholdning-tyrkiet.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+.edit-booking { background-image: url('https://images.pexels.com/photos/2325447/pexels-photo-2325447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'); }
+
