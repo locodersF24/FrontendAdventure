@@ -1,3 +1,4 @@
+import {urlActivities, urlReservationsById, urlReservations, urlTimeSlotsByDate} from "./urls.js";
 
 /**
  * @param {string} httpMethod `"GET"`, `"POST"`, `"PUT"`, `"DELETE"` etc.
@@ -30,43 +31,104 @@ export function sendFormWhenSubmit(httpMethod, url, formClass, sendDataAsBody, r
         } else {
             fetch(url + "?" + new URLSearchParams(formData), {
                 method: httpMethod,
-            })
-                .then(responseHandler);
+            }).then(responseHandler);
         }
     });
 }
 
-/**
- * @typedef {Object} TimeSlot
- * @property {number} id
- * @property {string} startTime - format 08:00:00 or 16:00:00
- * @property {string} endTime - format 08:00:00 or 16:00:00
- */
+const emptyReservation = {
+    id: 0,
+    numberOfPeople: -1,
+    date: "Not assigned.",
+    timeSlot: {
+        id: 0,
+        startTime: "Not assigned.",
+        endTime: "Not assigned.",
+        activity: {
+            id: 0,
+            name: "Not assigned.",
+            maxNumberOfPeople: -1,
+            ageLimit: -1
+        }
+    },
+    contactPerson: {
+        id: 0,
+        firstName: "Not assigned.",
+        lastName: "Not assigned.",
+        phoneNumber: "Not assigned.",
+        email: "Not assigned."
+    }
+}
+
+function Activity(object) {
+    this.id = object.id;
+    this.name = object.name;
+    this.maxNumberOfPeople = object.maxNumberOfPeople;
+    this.ageLimit = object.ageLimit;
+}
+
+function TimeSlot(object) {
+    this.id = object.id;
+    this.startTime = object.startTime;
+    this.endTime = object.endTime;
+    this.activity = new Activity(object.activity);
+    if (typeof object.availableNumberOfPeople === "number") {
+        this.availableNumberOfPeople = object.availableNumberOfPeople;
+    }
+}
+
+TimeSlot.prototype.timeInterval = function() {
+    return this.startTime.slice(0, 5) + "-" + this.endTime.slice(0, 5);
+}
+
+function ContactPerson(object) {
+    this.id = object.id;
+    this.firstName = object.firstName;
+    this.lastName = object.lastName;
+    this.phoneNumber = object.phoneNumber;
+    this.email = object.email;
+}
+
+export function Reservation(object = emptyReservation) {
+    this.id = object.id;
+    this.numberOfPeople = object.numberOfPeople;
+    this.date = object.date;
+    this.timeSlot = new TimeSlot(object.timeSlot);
+    this.contactPerson = new ContactPerson(object.contactPerson);
+}
 
 /**
- * @typedef {Object} Activity
- * @property {number} id
- * @property {string} name
- * @property {number} maxNumberOfPeople
- * @property {number} ageLimit
- * @property {TimeSlot[]} timeSlots
+ * @return {Promise<Activity[]>}
  */
+export function downloadActivities() {
+    return fetch(urlActivities)
+        .then(response => response.json())
+        .then(data => data.map(object => new Activity(object)));
+}
 
 /**
- * @typedef {Object} ContactPerson
- * @property {number} id
- * @property {string} firstName
- * @property {string} lastName
- * @property {string} phoneNumber
- * @property {string} email
+ * @return {Promise<TimeSlot[]>}
  */
+export function downloadTimeSlotsWithAvailability(date) {
+    return fetch(urlTimeSlotsByDate(date))
+        .then(response => response.json())
+        .then(data => data.map(object => new TimeSlot(object)));
+}
 
 /**
- * @typedef {Object} Reservation
- * @property {number} id
- * @property {number} numberOfPeople
- * @property {string} date - format 2025-03-2025
- * @property {TimeSlot} timeSlot
- * @property {Activity} activity
- * @property {ContactPerson} contactPerson
+ * @return {Promise<Reservation[]>}
  */
+export function downloadAllReservations() {
+    return fetch(urlReservations)
+        .then(response => response.json())
+        .then(data => data.map(object => new Reservation(object)));
+}
+
+/**
+ * @return {Promise<Reservation>}
+ */
+export function downloadReservationById(id) {
+    return fetch(urlReservationsById(id))
+        .then(response => response.json())
+        .then(data => data.map(object => new Reservation(object)));
+}
