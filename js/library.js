@@ -22,10 +22,13 @@ export function sendFormWhenSubmit(httpMethod, url, formClass, sendDataAsBody, r
         if (sendDataAsBody) {
             fetch(url, {
                 method: httpMethod,
-                body: formData
+                body: JSON.stringify(Object.fromEntries(formData)),
+                headers: {
+                    "Content-Type": "application/json",
+                }
             }).then(responseHandler);
         } else {
-            fetch(url + "?" + new URLSearchParams(formData).toString(), {
+            fetch(url + "?" + new URLSearchParams(formData), {
                 method: httpMethod,
             })
                 .then(responseHandler);
@@ -34,15 +37,36 @@ export function sendFormWhenSubmit(httpMethod, url, formClass, sendDataAsBody, r
 }
 
 /**
- * @typedef Booking
- * @type {object}
- * @property {string} reservationId
- * @property {string} activity
- * @property {string} numberOfPeople
- * @property {string} date
- * @property {string} timeInterval
+ * @typedef {Object} TimeSlot
+ * @property {number} id
+ * @property {string} startTime - format 08:00:00 or 16:00:00
+ * @property {string} endTime - format 08:00:00 or 16:00:00
+ */
+
+/**
+ * @typedef {Object} Activity
+ * @property {number} id
+ * @property {string} name
+ * @property {number} maxNumberOfPeople
+ * @property {number} ageLimit
+ * @property {TimeSlot[]} timeSlots
+ */
+
+/**
+ * @typedef {Object} ContactPerson
+ * @property {number} id
  * @property {string} firstName
  * @property {string} lastName
  * @property {string} phoneNumber
  * @property {string} email
+ */
+
+/**
+ * @typedef {Object} Reservation
+ * @property {number} id
+ * @property {number} numberOfPeople
+ * @property {string} date - format 2025-03-2025
+ * @property {TimeSlot} timeSlot
+ * @property {Activity} activity
+ * @property {ContactPerson} contactPerson
  */
